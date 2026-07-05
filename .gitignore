@@ -1,0 +1,21 @@
+# Archivos temporales y extraídos
+extracted_*/
+temp_*/
+fotos_extraidas/
+imagenes_organizadas/
+
+# Archivos ZIP
+*.zip
+
+# Archivos temporales de Word
+~$*.docx
+*.tmp
+
+# Archivos de imagen individuales (excepto logos)
+*.jpg
+*.jpeg
+*.png
+!logos/*.png
+
+# Archivos de información temporal
+*_info.txt
