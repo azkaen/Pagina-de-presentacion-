@@ -1,0 +1,35 @@
+--- Document: bit edit prae.docx ---
+Paragraphs:
+[0]: Aquí tienes las dos bitácoras organizadas y estructuradas formalmente basándote en el formato del Servicio Social para la Paz y la información que proporcionaste.
+[1]: He unificado tus datos de promotor e institución y adaptado los campos para que queden listos para tu informe. 
+[2]: 📋 BITÁCORA 1: Entrega Técnica del Programa de Planes de Desarrollo
+[3]: Fecha: 12/05/2026
+[4]: Hora: 08:00 AM – 10:00 AM
+[5]: 📋 BITÁCORA 2: Jornada Recreativa y Deportiva Comunitaria
+[6]: Fecha: 12/05/2026
+[7]: Hora: 11:00 AM – 01:00 PM
+
+Tables:
+Table 0:
+  Row 0: ['Campo', 'Detalle']
+  Row 1: ['Nombre Promotor', 'Kevin Alexis Aragon zapata']
+  Row 2: ['Documento de Identidad', '1007593800']
+  Row 3: ['Institución Educativa', 'I.E. Agroecológico Amazónico']
+  Row 4: ['Responsable de Actividad', 'Quimberly Loaiza']
+  Row 5: ['Municipio', 'El Paujil – Caquetá']
+  Row 6: ['Objetivo de la Actividad', 'Formalizar la entrega y firma del acta del software programado para indentar planes de desarrollo, con el fin de identificar indicadores estratégicos, buscar oportunidades de inversión y articular puntos de búsqueda que permitan la creación de propuestas y documentos legales (como derechos de petición).']
+  Row 7: ['Actores Vinculados', 'Docente responsable del PRAE, Promotor del Servicio Social para la Paz (SSP).']
+  Row 8: ['Acciones Realizadas', '* Entrega y Socialización del Software: Se presentó formalmente el programa diseñado para filtrar, indentar y analizar de forma automática los planes de desarrollo.   * Identificación de Indicadores: Se explicó el funcionamiento del filtro técnico para localizar metas e indicadores específicos dentro de las políticas públicas estatales.   * Ruta Jurídica y Propuestas: Se definieron los puntos de búsqueda clave que servirán de insumo para la posterior redacción de documentos de gestión como derechos de petición y propuestas de cofinanciación.   * Cierre y Firma: Se realizó la firma conjunta del acta de entrega con la profesora a cargo para validar el cumplimiento de la meta técnica.']
+  Row 9: ['Resultados Alcanzados', '* Programa informático entregado y operando en la institución para el análisis estratégico de planes de desarrollo.   * Acta de entrega debidamente firmada por la docente responsable como constancia de la articulación tecnológica.   * Establecimiento de una base metodológica para que el colegio pueda formular solicitudes formales (derechos de petición) fundamentadas en indicadores reales.']
+Table 1:
+  Row 0: ['Campo', 'Detalle']
+  Row 1: ['Nombre Promotor', 'Kevin Alexis Aragon zapata']
+  Row 2: ['Documento de Identidad', '1007593800']
+  Row 3: ['Institución Educativa', 'I.E. Agroecológico Amazónico']
+  Row 4: ['Responsable de Actividad', 'Quimberly Loaiza']
+  Row 5: ['Municipio', 'El Paujil – Caquetá']
+  Row 6: ['Objetivo de la Actividad', 'Fomentar la integración comunitaria, el deporte y el uso saludable del tiempo libre mediante una jornada recreativa dirigida a niños y jóvenes de la institución y el sector.']
+  Row 7: ['Actores Vinculados', 'Niños y jóvenes de la comunidad, Campamentos Juveniles "Bosque Mitu Salvini", Docentes de la Institución Educativa, Promotor del SSP.']
+  Row 8: ['Acciones Realizadas', '* Coordinación Interinstitucional: Se articuló la logística de la tarde junto al equipo de Campamentos Juveniles "Bosque Mitu Salvini" y los representantes de la institución educativa.   * Actividades Lúdicas: Se desarrollaron dinámicas de grupo, juegos cooperativos y tradicionales enfocados en la sana convivencia.   * Encuentro Deportivo: Se organizaron espacios de deporte dirigido para activar físicamente a los niños y jóvenes participantes, promoviendo el trabajo en equipo y el liderazgo juvenil.']
+  Row 9: ['Resultados Alcanzados', '* Espacio de esparcimiento, deporte y recreación garantizado con éxito para los niños y jóvenes en el horario establecido.   * Fortalecimiento del lazo institucional entre la comunidad educativa y los movimientos juveniles del territorio (Campamentos Juveniles).   * Promoción de hábitos de vida saludable y sana convivencia comunitaria enmarcada dentro de las acciones de paz del programa.']
+---------------------------------
