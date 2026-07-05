@@ -4,815 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Trayectoria en el SSP - Kevin Alexis Aragón Zapata</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #1a5f7a;
-            --secondary: #57c5b6;
-            --accent: #159895;
-            --dark: #002b5b;
-            --light: #f0f7fa;
-            --text: #2c3e50;
-            --white: #ffffff;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            color: var(--text);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-brand {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--gradient-1);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 15s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding-top: 80px;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            margin-top: 2rem;
-            animation: fadeInUp 1s ease;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 1rem;
-        }
-
-        .hero h2 {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.3s both;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 1rem;
-        }
-
-        .hero-info {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sections */
-        .section {
-            min-height: 100vh;
-            padding: 6rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .section-content {
-            max-width: 900px;
-            width: 100%;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .timeline-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 2rem;
-            width: 15px;
-            height: 15px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 3px solid var(--white);
-            box-shadow: 0 0 0 3px var(--accent);
-        }
-
-        .timeline-date {
-            font-size: 0.9rem;
-            color: var(--primary);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 1rem;
-        }
-
-        .timeline-location {
-            font-size: 0.9rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        /* Audio Player */
-        .audio-section {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-
-        .audio-player {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .audio-btn {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .audio-btn:hover {
-            background: var(--dark);
-            transform: scale(1.05);
-        }
-
-        .audio-btn.playing {
-            background: var(--accent);
-        }
-
-        .audio-status {
-            font-size: 0.9rem;
-            color: var(--dark);
-        }
-
-        /* Cards */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* Quote */
-        .quote {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
-            color: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .quote-text {
-            font-size: 1.5rem;
-            font-style: italic;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .quote-author {
-            margin-top: 2rem;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--text);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero h2 {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .nav {
-                padding: 1rem;
-            }
-
-            .nav-links {
-                gap: 0.5rem;
-            }
-
-            .nav-links a {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-
-            .timeline-item {
-                padding: 1.5rem;
-            }
-
-            .quote-text {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .slide-in {
-            animation: slideIn 0.8s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: var(--accent);
-            z-index: 1001;
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        /* Chapter Navigation */
-        .chapter-nav {
-            position: fixed;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            z-index: 999;
-        }
-
-        .chapter-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0.5;
-        }
-
-        .chapter-dot:hover,
-        .chapter-dot.active {
-            opacity: 1;
-            transform: scale(1.3);
-        }
-
-        @media (max-width: 768px) {
-            .chapter-nav {
-                right: 1rem;
-            }
-        }
-
-        /* Photo Gallery */
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .photo-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: linear-gradient(135deg, var(--light) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px dashed var(--primary);
-        }
-
-        .photo-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            background: var(--light);
-        }
-
-        .photo-item img[src=""],
-        .photo-item img:not([src]) {
-            display: none;
-        }
-
-        .photo-placeholder {
-            text-align: center;
-            padding: 2rem;
-            color: var(--dark);
-        }
-
-        .photo-item:has(img:not([src=""])) .photo-placeholder {
-            display: none;
-        }
-
-        .photo-placeholder-icon {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .photo-placeholder-text {
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        .photo-placeholder-hint {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-top: 0.5rem;
-        }
-
-        /* Hero Photo */
-        .hero-photo {
-            width: 300px;
-            height: 200px;
-            border-radius: 15px;
-            margin: 2rem auto;
-            background: linear-gradient(135deg, var(--light) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 4px solid var(--white);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            overflow: hidden;
-        }
-
-        .hero-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Hero Carousel */
-        .hero-carousel {
-            width: 100%;
-            max-width: 800px;
-            margin: 2rem auto;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        /* Video Section */
-        .video-section {
-            background: var(--light);
-            padding: 3rem 2rem;
-            margin: 2rem 0;
-        }
-
-        .video-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            margin-bottom: 2rem;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-title {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            height: 400px;
-            position: relative;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: rgba(0,0,0,0.3);
-        }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 2rem 1rem 1rem;
-            text-align: center;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-nav:hover {
-            background: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .carousel-prev {
-            left: 20px;
-        }
-
-        .carousel-next {
-            right: 20px;
-        }
-
-        .carousel-dots {
-            position: absolute;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background: white;
-            transform: scale(1.2);
-        }
-
-        @media (max-width: 768px) {
-            .hero-carousel {
-                margin: 1rem;
-            }
-            .carousel-slide {
-                height: 250px;
-            }
-            .carousel-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-            .carousel-prev {
-                left: 10px;
-            }
-            .carousel-next {
-                right: 10px;
-            }
-        }
-
-        .hero-photo img[src=""],
-        .hero-photo img:not([src]) {
-            display: none;
-        }
-
-        .hero-photo-placeholder {
-            text-align: center;
-            color: var(--dark);
-        }
-
-        .hero-photo:has(img:not([src=""])) .hero-photo-placeholder {
-            display: none;
-        }
-
-        /* Fullscreen Image Viewer */
-        .image-viewer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .image-viewer.active {
-            display: flex;
-        }
-
-        .image-viewer img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-
-        .image-viewer-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: var(--white);
-            color: var(--text);
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
@@ -839,175 +31,175 @@
             <div class="hero-carousel" id="heroCarousel">
                 <div class="carousel-track" id="carouselTrack">
                     <div class="carousel-slide">
-                        <img src="inscripcion.jpg" alt="Inscripción SSP">
+                        <img src="images/inscripcion.jpg" alt="Inscripción SSP">
                         <div class="carousel-caption">
                             <h3>📝 Inscripción SSP</h3>
                             <p>El inicio del camino</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="seleccion.jpg" alt="Selección SSP">
+                        <img src="images/seleccion.jpg" alt="Selección SSP">
                         <div class="carousel-caption">
                             <h3>✅ Selección SSP</h3>
                             <p>Seleccionado como promotor</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="formacion1.jpg" alt="Formación SSP">
+                        <img src="images/formacion1.jpg" alt="Formación SSP">
                         <div class="carousel-caption">
                             <h3>🎓 Formación SSP</h3>
                             <p>Aprendizajes para la vida</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="formacion2.jpg" alt="Formación SSP">
+                        <img src="images/formacion2.jpg" alt="Formación SSP">
                         <div class="carousel-caption">
                             <h3>🎓 Formación SSP</h3>
                             <p>Talleres y módulos</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="formacion3.jpg" alt="Formación SSP">
+                        <img src="images/formacion3.jpg" alt="Formación SSP">
                         <div class="carousel-caption">
                             <h3>🎓 Formación SSP</h3>
                             <p>Grupo de promotores</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="prae-software.jpg" alt="Software PRAE">
+                        <img src="images/prae-software.jpg" alt="Software PRAE">
                         <div class="carousel-caption">
                             <h3>💻 Software PRAE</h3>
                             <p>Herramienta tecnológica para planes de desarrollo</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="prae-acta.jpg" alt="Acta PRAE">
+                        <img src="images/prae-acta.jpg" alt="Acta PRAE">
                         <div class="carousel-caption">
                             <h3>📋 Acta PRAE</h3>
                             <p>Entrega formal del software</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="prae-deporte1.jpg" alt="Jornada Deportiva">
+                        <img src="images/prae-deporte1.jpg" alt="Jornada Deportiva">
                         <div class="carousel-caption">
                             <h3>⚽ Jornada Deportiva</h3>
                             <p>Integración comunitaria</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="prae-deporte2.jpg" alt="Actividades Lúdicas">
+                        <img src="images/prae-deporte2.jpg" alt="Actividades Lúdicas">
                         <div class="carousel-caption">
                             <h3>🎮 Actividades Lúdicas</h3>
                             <p>Sana convivencia</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="prae-deporte3.jpg" alt="Campamentos Juveniles">
+                        <img src="images/prae-deporte3.jpg" alt="Campamentos Juveniles">
                         <div class="carousel-caption">
                             <h3>🏕️ Campamentos Juveniles</h3>
                             <p>Bosque Mitu Salvini</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="flyer1.jpg" alt="Flyer Electoral">
+                        <img src="images/flyer1.jpg" alt="Flyer Electoral">
                         <div class="carousel-caption">
                             <h3>📄 Flyer Electoral</h3>
                             <p>Piezas gráficas para la participación</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="flyer2.jpg" alt="Flyer Electoral">
+                        <img src="images/flyer2.jpg" alt="Flyer Electoral">
                         <div class="carousel-caption">
                             <h3>📄 Flyer Electoral</h3>
                             <p>Pedagogía visual</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="diseño-trabajo.jpg" alt="Diseño Flyers">
+                        <img src="images/diseño-trabajo.jpg" alt="Diseño Flyers">
                         <div class="carousel-caption">
                             <h3>🎨 Diseño Flyers</h3>
                             <p>Trabajo creativo</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="pedagogia1.jpg" alt="Pedagogía Electoral">
+                        <img src="images/pedagogia1.jpg" alt="Pedagogía Electoral">
                         <div class="carousel-caption">
                             <h3>📣 Pedagogía Electoral</h3>
                             <p>En territorio</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="pedagogia2.jpg" alt="Diálogo Comunidad">
+                        <img src="images/pedagogia2.jpg" alt="Diálogo Comunidad">
                         <div class="carousel-caption">
                             <h3>🤝 Diálogo Comunidad</h3>
                             <p>Con líderes comunales</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="testigo.jpg" alt="Testigo Electoral">
+                        <img src="images/testigo.jpg" alt="Testigo Electoral">
                         <div class="carousel-caption">
                             <h3>🗳️ Testigo Electoral</h3>
                             <p>Garantizando la transparencia democrática</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="votacion1.jpg" alt="Puesto de Votación">
+                        <img src="images/votacion1.jpg" alt="Puesto de Votación">
                         <div class="carousel-caption">
                             <h3>🏛️ Puesto de Votación</h3>
                             <p>I.E. Agroecológico Amazónico</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="acta.jpg" alt="Acta de Escrutinio">
+                        <img src="images/acta.jpg" alt="Acta de Escrutinio">
                         <div class="carousel-caption">
                             <h3>📋 Acta de Escrutinio</h3>
                             <p>Transparencia del proceso</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="ninos1.jpg" alt="Taller con Niños">
+                        <img src="images/ninos1.jpg" alt="Taller con Niños">
                         <div class="carousel-caption">
                             <h3>👨‍👩‍👧‍👦 Pedagogía de Paz</h3>
                             <p>Construyendo paz desde la infancia</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="ninos2.jpg" alt="Dibujos de Paz">
+                        <img src="images/ninos2.jpg" alt="Dibujos de Paz">
                         <div class="carousel-caption">
                             <h3>🎨 Dibujos de Paz</h3>
                             <p>Visión infantil de la reconciliación</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="ninos3.jpg" alt="Grupo Niños">
+                        <img src="images/ninos3.jpg" alt="Grupo Niños">
                         <div class="carousel-caption">
                             <h3>👨‍👩‍👧‍👦 Grupo Niños</h3>
                             <p>Guardianes de la paz</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="obra1.jpg" alt="Construcción Bancas">
+                        <img src="images/obra1.jpg" alt="Construcción Bancas">
                         <div class="carousel-caption">
                             <h3>🏗️ Construcción Bancas</h3>
                             <p>Infraestructura comunitaria</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="olla.jpg" alt="Olla Comunitaria">
+                        <img src="images/olla.jpg" alt="Olla Comunitaria">
                         <div class="carousel-caption">
                             <h3>🍲 Olla Comunitaria</h3>
                             <p>Fortaleciendo el tejido social</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="cancha.jpg" alt="Cancha Recuperada">
+                        <img src="images/cancha.jpg" alt="Cancha Recuperada">
                         <div class="carousel-caption">
                             <h3>⚽ Cancha Recuperada</h3>
                             <p>Espacio público recuperado</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="grupo-barrio.jpg" alt="Grupo Barrio">
+                        <img src="images/grupo-barrio.jpg" alt="Grupo Barrio">
                         <div class="carousel-caption">
                             <h3>👥 Grupo Barrio</h3>
                             <p>Comunidad del Primero de Mayo</p>
@@ -1075,7 +267,7 @@
                                 <div class="photo-placeholder-text">Foto inscripción</div>
                                 <div class="photo-placeholder-hint">inscripcion.jpg</div>
                             </div>
-                            <img src="inscripcion.jpg" alt="Foto inscripción SSP">
+                            <img src="images/inscripcion.jpg" alt="Foto inscripción SSP">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1083,7 +275,7 @@
                                 <div class="photo-placeholder-text">Foto selección</div>
                                 <div class="photo-placeholder-hint">seleccion.jpg</div>
                             </div>
-                            <img src="seleccion.jpg" alt="Foto selección SSP">
+                            <img src="images/seleccion.jpg" alt="Foto selección SSP">
                         </div>
                     </div>
                 </div>
@@ -1105,7 +297,7 @@
                                 <div class="photo-placeholder-text">Foto formación</div>
                                 <div class="photo-placeholder-hint">formacion1.jpg</div>
                             </div>
-                            <img src="formacion1.jpg" alt="Foto formación SSP">
+                            <img src="images/formacion1.jpg" alt="Foto formación SSP">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1113,7 +305,7 @@
                                 <div class="photo-placeholder-text">Foto taller</div>
                                 <div class="photo-placeholder-hint">formacion2.jpg</div>
                             </div>
-                            <img src="formacion2.jpg" alt="Foto taller SSP">
+                            <img src="images/formacion2.jpg" alt="Foto taller SSP">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1121,7 +313,7 @@
                                 <div class="photo-placeholder-text">Foto grupo</div>
                                 <div class="photo-placeholder-hint">formacion3.jpg</div>
                             </div>
-                            <img src="formacion3.jpg" alt="Foto grupo formación">
+                            <img src="images/formacion3.jpg" alt="Foto grupo formación">
                         </div>
                     </div>
                 </div>
@@ -1140,7 +332,7 @@
                                 <div class="photo-placeholder-text">Entrega software</div>
                                 <div class="photo-placeholder-hint">prae-software.jpg</div>
                             </div>
-                            <img src="prae-software.jpg" alt="Entrega de software PRAE">
+                            <img src="images/prae-software.jpg" alt="Entrega de software PRAE">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1148,7 +340,7 @@
                                 <div class="photo-placeholder-text">Firma acta</div>
                                 <div class="photo-placeholder-hint">prae-acta.jpg</div>
                             </div>
-                            <img src="prae-acta.jpg" alt="Firma de acta de entrega">
+                            <img src="images/prae-acta.jpg" alt="Firma de acta de entrega">
                         </div>
                     </div>
                 </div>
@@ -1166,7 +358,7 @@
                                 <div class="photo-placeholder-text">Jornada deportiva</div>
                                 <div class="photo-placeholder-hint">prae-deporte1.jpg</div>
                             </div>
-                            <img src="prae-deporte1.jpg" alt="Jornada deportiva PRAE">
+                            <img src="images/prae-deporte1.jpg" alt="Jornada deportiva PRAE">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1174,7 +366,7 @@
                                 <div class="photo-placeholder-text">Actividades lúdicas</div>
                                 <div class="photo-placeholder-hint">prae-deporte2.jpg</div>
                             </div>
-                            <img src="prae-deporte2.jpg" alt="Actividades lúdicas">
+                            <img src="images/prae-deporte2.jpg" alt="Actividades lúdicas">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1182,7 +374,7 @@
                                 <div class="photo-placeholder-text">Grupo campamentos</div>
                                 <div class="photo-placeholder-hint">prae-deporte3.jpg</div>
                             </div>
-                            <img src="prae-deporte3.jpg" alt="Grupo campamentos juveniles">
+                            <img src="images/prae-deporte3.jpg" alt="Grupo campamentos juveniles">
                         </div>
                     </div>
                 </div>
@@ -1207,7 +399,7 @@
                                 <div class="photo-placeholder-text">Flyer diseño</div>
                                 <div class="photo-placeholder-hint">flyer1.jpg</div>
                             </div>
-                            <img src="flyer1.jpg" alt="Flyer diseño electoral">
+                            <img src="images/flyer1.jpg" alt="Flyer diseño electoral">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1215,7 +407,7 @@
                                 <div class="photo-placeholder-text">Flyer final</div>
                                 <div class="photo-placeholder-hint">flyer2.jpg</div>
                             </div>
-                            <img src="flyer2.jpg" alt="Flyer final electoral">
+                            <img src="images/flyer2.jpg" alt="Flyer final electoral">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1223,7 +415,7 @@
                                 <div class="photo-placeholder-text">Trabajo diseño</div>
                                 <div class="photo-placeholder-hint">diseño-trabajo.jpg</div>
                             </div>
-                            <img src="diseño-trabajo.jpg" alt="Trabajo diseño flyers">
+                            <img src="images/diseño-trabajo.jpg" alt="Trabajo diseño flyers">
                         </div>
                     </div>
                     <div class="audio-section">
@@ -1250,7 +442,7 @@
                                 <div class="photo-placeholder-text">Pedagogía calle</div>
                                 <div class="photo-placeholder-hint">pedagogia1.jpg</div>
                             </div>
-                            <img src="pedagogia1.jpg" alt="Pedagogía electoral en calle">
+                            <img src="images/pedagogia1.jpg" alt="Pedagogía electoral en calle">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1258,7 +450,7 @@
                                 <div class="photo-placeholder-text">Diálogo comunidad</div>
                                 <div class="photo-placeholder-hint">pedagogia2.jpg</div>
                             </div>
-                            <img src="pedagogia2.jpg" alt="Diálogo con comunidad">
+                            <img src="images/pedagogia2.jpg" alt="Diálogo con comunidad">
                         </div>
                     </div>
                 </div>
@@ -1292,7 +484,7 @@
                                 <div class="photo-placeholder-text">Puesto votación</div>
                                 <div class="photo-placeholder-hint">votacion1.jpg</div>
                             </div>
-                            <img src="votacion1.jpg" alt="Puesto de votación">
+                            <img src="images/votacion1.jpg" alt="Puesto de votación">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1300,7 +492,7 @@
                                 <div class="photo-placeholder-text">Como testigo</div>
                                 <div class="photo-placeholder-hint">testigo.jpg</div>
                             </div>
-                            <img src="testigo.jpg" alt="Ejerciendo como testigo electoral">
+                            <img src="images/testigo.jpg" alt="Ejerciendo como testigo electoral">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1308,7 +500,7 @@
                                 <div class="photo-placeholder-text">Acta escrutinio</div>
                                 <div class="photo-placeholder-hint">acta.jpg</div>
                             </div>
-                            <img src="acta.jpg" alt="Acta de escrutinio">
+                            <img src="images/acta.jpg" alt="Acta de escrutinio">
                         </div>
                     </div>
                 </div>
@@ -1334,7 +526,7 @@
                                 <div class="photo-placeholder-text">Taller niños</div>
                                 <div class="photo-placeholder-hint">ninos1.jpg</div>
                             </div>
-                            <img src="ninos1.jpg" alt="Taller con niños">
+                            <img src="images/ninos1.jpg" alt="Taller con niños">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1342,7 +534,7 @@
                                 <div class="photo-placeholder-text">Dibujos paz</div>
                                 <div class="photo-placeholder-hint">ninos2.jpg</div>
                             </div>
-                            <img src="ninos2.jpg" alt="Dibujos de paz de niños">
+                            <img src="images/ninos2.jpg" alt="Dibujos de paz de niños">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1350,7 +542,7 @@
                                 <div class="photo-placeholder-text">Grupo niños</div>
                                 <div class="photo-placeholder-hint">ninos3.jpg</div>
                             </div>
-                            <img src="ninos3.jpg" alt="Grupo de niños taller">
+                            <img src="images/ninos3.jpg" alt="Grupo de niños taller">
                         </div>
                     </div>
                 </div>
@@ -1368,7 +560,7 @@
                                 <div class="photo-placeholder-text">Construcción bancas</div>
                                 <div class="photo-placeholder-hint">obra1.jpg</div>
                             </div>
-                            <img src="obra1.jpg" alt="Construcción de bancas">
+                            <img src="images/obra1.jpg" alt="Construcción de bancas">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1376,7 +568,7 @@
                                 <div class="photo-placeholder-text">Olla comunitaria</div>
                                 <div class="photo-placeholder-hint">olla.jpg</div>
                             </div>
-                            <img src="olla.jpg" alt="Olla comunitaria">
+                            <img src="images/olla.jpg" alt="Olla comunitaria">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1384,7 +576,7 @@
                                 <div class="photo-placeholder-text">Cancha recuperada</div>
                                 <div class="photo-placeholder-hint">cancha.jpg</div>
                             </div>
-                            <img src="cancha.jpg" alt="Cancha recuperada">
+                            <img src="images/cancha.jpg" alt="Cancha recuperada">
                         </div>
                         <div class="photo-item" onclick="openViewer(this)">
                             <div class="photo-placeholder">
@@ -1392,7 +584,7 @@
                                 <div class="photo-placeholder-text">Grupo barrio</div>
                                 <div class="photo-placeholder-hint">grupo-barrio.jpg</div>
                             </div>
-                            <img src="grupo-barrio.jpg" alt="Grupo del barrio">
+                            <img src="images/grupo-barrio.jpg" alt="Grupo del barrio">
                         </div>
                     </div>
                 </div>
@@ -1493,7 +685,7 @@
 
     <div class="image-viewer" id="imageViewer">
         <button class="image-viewer-close" onclick="closeViewer()">✕ Cerrar</button>
-        <img id="viewerImage" src="" alt="Imagen ampliada">
+        <img id="viewerImage" src="images/" alt="Imagen ampliada">
     </div>
 
     <footer class="footer">
@@ -1505,184 +697,6 @@
         </div>
     </footer>
 
-    <script>
-        // Progress Bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        });
-
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.timeline-item, .card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Chapter Navigation
-        const sections = document.querySelectorAll('section');
-        const chapterNav = document.getElementById('chapterNav');
-
-        sections.forEach((section, index) => {
-            const dot = document.createElement('div');
-            dot.className = 'chapter-dot';
-            dot.addEventListener('click', () => {
-                section.scrollIntoView({ behavior: 'smooth' });
-            });
-            chapterNav.appendChild(dot);
-        });
-
-        // Update active chapter dot
-        window.addEventListener('scroll', () => {
-            const dots = document.querySelectorAll('.chapter-dot');
-            let current = 0;
-
-            sections.forEach((section, index) => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight / 2) {
-                    current = index;
-                }
-            });
-
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === current);
-            });
-        });
-
-        // Audio Player (placeholder)
-        function toggleAudio(btn) {
-            btn.classList.toggle('playing');
-            const icon = btn.querySelector('span');
-            const status = btn.parentElement.querySelector('.audio-status');
-            
-            if (btn.classList.contains('playing')) {
-                icon.textContent = '⏸️';
-                status.textContent = 'Reproduciendo audio...';
-            } else {
-                icon.textContent = '▶️';
-                status.textContent = 'Graba tu audio y reemplaza el archivo';
-            }
-        }
-
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Image Viewer
-        function openViewer(element) {
-            const img = element.querySelector('img');
-            if (img && img.src && !img.src.includes('file://')) {
-                document.getElementById('viewerImage').src = img.src;
-                document.getElementById('imageViewer').classList.add('active');
-            }
-        }
-
-        function closeViewer() {
-            document.getElementById('imageViewer').classList.remove('active');
-        }
-
-        // Close viewer on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeViewer();
-            }
-        });
-
-        // Close viewer on background click
-        document.getElementById('imageViewer').addEventListener('click', (e) => {
-            if (e.target.id === 'imageViewer') {
-                closeViewer();
-            }
-        });
-
-        // Hide placeholders when images load
-        function hidePlaceholders() {
-            document.querySelectorAll('.photo-item img, .hero-photo img').forEach(img => {
-                const parent = img.parentElement;
-                const placeholder = parent.querySelector('.photo-placeholder, .hero-photo-placeholder');
-                
-                if (placeholder) {
-                    // Check if image exists and is loaded
-                    if (img.complete && img.naturalHeight > 0) {
-                        placeholder.style.display = 'none';
-                        img.style.display = 'block';
-                    }
-                }
-            });
-        }
-        
-        // Run on load
-        window.addEventListener('load', hidePlaceholders);
-        
-        // Also run after a short delay
-        setTimeout(hidePlaceholders, 500);
-        setTimeout(hidePlaceholders, 1000);
-
-        // Hero Carousel
-        let currentSlide = 0;
-        const carouselTrack = document.getElementById('carouselTrack');
-        const carouselDots = document.getElementById('carouselDots');
-        const slides = carouselTrack.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-
-        // Create dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
-            dot.addEventListener('click', () => goToSlide(index));
-            carouselDots.appendChild(dot);
-        });
-
-        function updateCarousel() {
-            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update dots
-            const dots = carouselDots.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function moveCarousel(direction) {
-            currentSlide += direction;
-            
-            if (currentSlide >= totalSlides) {
-                currentSlide = 0;
-            } else if (currentSlide < 0) {
-                currentSlide = totalSlides - 1;
-            }
-            
-            updateCarousel();
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-        }
-
-        // Auto-advance carousel
-        setInterval(() => {
-            moveCarousel(1);
-        }, 5000);
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

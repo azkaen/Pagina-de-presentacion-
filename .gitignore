@@ -11,11 +11,5 @@ imagenes_organizadas/
 ~$*.docx
 *.tmp
 
-# Archivos de imagen individuales (excepto logos)
-*.jpg
-*.jpeg
-*.png
-!logos/*.png
-
 # Archivos de información temporal
 *_info.txt
