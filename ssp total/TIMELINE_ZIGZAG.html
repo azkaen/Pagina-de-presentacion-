@@ -52,7 +52,53 @@
 <section class="hero" id="inicio">
     <h1>🌿 MI TRAYECTORIA EN EL SERVICIO SOCIAL PARA LA PAZ</h1>
     <h2>Una Historia de Transformación Territorial en el Caquetá</h2>
-    <p><strong>Kevin Alexis Aragon Zapata</strong> | ASOJUNTAS Cartagena del Chairá | Febrero - Julio 2026</p>
+    <div style="max-width: 600px; margin: 2rem auto; position: relative; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+        <div style="position: relative; padding-bottom: 66.67%; overflow: hidden;">
+            <div id="carousel" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; transition: transform 0.5s;">
+                <img src="images/formacion1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/grupo-barrio.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/pedagogia1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/obra1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+        <button onclick="carouselPrev()" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 1.2rem; z-index: 10;">❮</button>
+        <button onclick="carouselNext()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 1.2rem; z-index: 10;">❯</button>
+        <div style="padding: 1.5rem; background: linear-gradient(135deg, #1a5f7a, #15988f); color: white; text-align: center;">
+            <p style="font-weight: bold; margin: 0;">🌿 Mi Trayectoria SSP 2026</p>
+            <p style="font-size: 0.9rem; opacity: 0.9; margin: 0.5rem 0 0 0;">Kevin Alexis Aragon Zapata</p>
+        </div>
+    </div>
+    <p style="margin-top: 2rem;"><strong>Kevin Alexis Aragon Zapata</strong> | ASOJUNTAS Cartagena del Chairá | Febrero - Julio 2026</p>
+    <script>
+        let carouselIndex = 0;
+        function carouselNext() { carouselIndex = (carouselIndex + 1) % 4; updateCarousel(); }
+        function carouselPrev() { carouselIndex = (carouselIndex - 1 + 4) % 4; updateCarousel(); }
+        function updateCarousel() { document.getElementById('carousel').style.transform = 'translateX(' + (-carouselIndex * 100) + '%)'; }
+    </script>
+</section>
+
+<section class="section" style="background: white; padding: 5rem 2rem;">
+    <div class="section-content">
+        <h2 class="section-title">🎥 VIDEOS DE MI EXPERIENCIA SSP</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+            <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <iframe style="width: 100%; height: 300px; border: none;" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                <p style="text-align: center; padding: 1rem; font-weight: bold; background: #f0f7f9;">Presentación SSP</p>
+            </div>
+            <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <iframe style="width: 100%; height: 300px; border: none;" src="https://www.youtube.com/embed/jNQXAC9IVRw" allowfullscreen></iframe>
+                <p style="text-align: center; padding: 1rem; font-weight: bold; background: #f0f7f9;">Formación Territorio</p>
+            </div>
+            <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <iframe style="width: 100%; height: 300px; border: none;" src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe>
+                <p style="text-align: center; padding: 1rem; font-weight: bold; background: #f0f7f9;">Paz Comunitaria</p>
+            </div>
+            <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <iframe style="width: 100%; height: 300px; border: none;" src="https://www.youtube.com/embed/BJ0bCwOSHrA" allowfullscreen></iframe>
+                <p style="text-align: center; padding: 1rem; font-weight: bold; background: #f0f7f9;">Reflexión Ambiental</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="section" id="historia">
