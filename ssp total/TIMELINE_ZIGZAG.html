@@ -134,66 +134,71 @@
 </nav>
 
 <section class="hero" id="inicio">
-    <h1>🌿 MI TRAYECTORIA EN EL SERVICIO SOCIAL PARA LA PAZ</h1>
-    <h2>Una Historia de Transformación Territorial en el Caquetá</h2>
-    <div style="max-width: 600px; margin: 2rem auto; position: relative; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-        <div style="position: relative; padding-bottom: 66.67%; overflow: hidden;">
-            <div id="carousel" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; transition: transform 0.5s;">
-                <img src="images/inicial.jpeg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/formacion1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/formacion2.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/formacion3.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/pedagogia1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/pedagogia2.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/grupo-barrio.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/ninos1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/ninos2.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/ninos3.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/obra1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/cancha.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/olla.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/flyer1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/flyer2.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/testigo.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/votacion1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/acta.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+    <div class="hero-content animate__animated animate__fadeInDown">
+        <h1>🌿 MI TRAYECTORIA EN EL SERVICIO SOCIAL PARA LA PAZ</h1>
+        <h2>Una Historia de Transformación Territorial en el Caquetá</h2>
+
+        <div class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel-track" id="carousel">
+                    <div class="carousel-slide"><img src="images/inicial.jpeg" alt="Inicio"></div>
+                    <div class="carousel-slide"><img src="images/formacion1.jpg" alt="Formación 1"></div>
+                    <div class="carousel-slide"><img src="images/formacion2.jpg" alt="Formación 2"></div>
+                    <div class="carousel-slide"><img src="images/formacion3.jpg" alt="Formación 3"></div>
+                    <div class="carousel-slide"><img src="images/pedagogia1.jpg" alt="Pedagogía 1"></div>
+                    <div class="carousel-slide"><img src="images/pedagogia2.jpg" alt="Pedagogía 2"></div>
+                    <div class="carousel-slide"><img src="images/grupo-barrio.jpg" alt="Grupo Barrio"></div>
+                    <div class="carousel-slide"><img src="images/ninos1.jpg" alt="Niños 1"></div>
+                    <div class="carousel-slide"><img src="images/ninos2.jpg" alt="Niños 2"></div>
+                    <div class="carousel-slide"><img src="images/ninos3.jpg" alt="Niños 3"></div>
+                    <div class="carousel-slide"><img src="images/obra1.jpg" alt="Obra"></div>
+                    <div class="carousel-slide"><img src="images/cancha.jpg" alt="Cancha"></div>
+                    <div class="carousel-slide"><img src="images/olla.jpg" alt="Olla"></div>
+                    <div class="carousel-slide"><img src="images/flyer1.jpg" alt="Flyer 1"></div>
+                    <div class="carousel-slide"><img src="images/flyer2.jpg" alt="Flyer 2"></div>
+                    <div class="carousel-slide"><img src="images/testigo.jpg" alt="Testigo"></div>
+                    <div class="carousel-slide"><img src="images/votacion1.jpg" alt="Votación"></div>
+                    <div class="carousel-slide"><img src="images/acta.jpg" alt="Acta"></div>
+                </div>
             </div>
+            <button class="carousel-nav carousel-prev" onclick="carouselPrev()">❮</button>
+            <button class="carousel-nav carousel-next" onclick="carouselNext()">❯</button>
         </div>
-        <button onclick="carouselPrev()" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 1.2rem; z-index: 10;">❮</button>
-        <button onclick="carouselNext()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 1.2rem; z-index: 10;">❯</button>
-        <div style="padding: 1.5rem; background: linear-gradient(135deg, #1a5f7a, #15988f); color: white; text-align: center;">
-            <p style="font-weight: bold; margin: 0;">🌿 Mi Trayectoria SSP 2026</p>
-            <p style="font-size: 0.9rem; opacity: 0.9; margin: 0.5rem 0 0 0;">Kevin Alexis Aragon Zapata</p>
+
+        <div class="hero-info animate__animated animate__fadeInUp">
+            <p><strong>Promotor:</strong> Kevin Alexis Aragon Zapata</p>
+            <p><strong>Organización:</strong> ASOJUNTAS Cartagena del Chairá</p>
+            <p><strong>Periodo:</strong> Febrero - Julio 2026</p>
         </div>
     </div>
-    <p style="margin-top: 2rem;"><strong>Kevin Alexis Aragon Zapata</strong> | ASOJUNTAS Cartagena del Chairá | Febrero - Julio 2026</p>
     <script>
         let carouselIndex = 0;
-        function carouselNext() { carouselIndex = (carouselIndex + 1) % 18; updateCarousel(); }
-        function carouselPrev() { carouselIndex = (carouselIndex - 1 + 18) % 18; updateCarousel(); }
+        const totalSlides = 18;
+        function carouselNext() { carouselIndex = (carouselIndex + 1) % totalSlides; updateCarousel(); }
+        function carouselPrev() { carouselIndex = (carouselIndex - 1 + totalSlides) % totalSlides; updateCarousel(); }
         function updateCarousel() { document.getElementById('carousel').style.transform = 'translateX(' + (-carouselIndex * 100) + '%)'; }
     </script>
 </section>
 
-<section class="section" style="background: white; padding: 5rem 2rem;">
+<section class="video-section" id="videos">
     <div class="section-content">
         <h2 class="section-title">🎥 VIDEOS DE MI EXPERIENCIA SSP</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
-            <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                <iframe style="width: 100%; height: 300px; border: none;" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-                <p style="text-align: center; padding: 1rem; font-weight: bold; background: #f0f7f9;">Presentación SSP</p>
+        <div class="video-grid">
+            <div class="video-item">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
+                <p style="text-align:center;padding:1rem;font-weight:bold;background:var(--light)">Presentación SSP</p>
             </div>
-            <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                <iframe style="width: 100%; height: 300px; border: none;" src="https://www.youtube.com/embed/jNQXAC9IVRw" allowfullscreen></iframe>
-                <p style="text-align: center; padding: 1rem; font-weight: bold; background: #f0f7f9;">Formación Territorio</p>
+            <div class="video-item">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" allowfullscreen></iframe></div>
+                <p style="text-align:center;padding:1rem;font-weight:bold;background:var(--light)">Formación Territorio</p>
             </div>
-            <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                <iframe style="width: 100%; height: 300px; border: none;" src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe>
-                <p style="text-align: center; padding: 1rem; font-weight: bold; background: #f0f7f9;">Paz Comunitaria</p>
+            <div class="video-item">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe></div>
+                <p style="text-align:center;padding:1rem;font-weight:bold;background:var(--light)">Paz Comunitaria</p>
             </div>
-            <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                <iframe style="width: 100%; height: 300px; border: none;" src="https://www.youtube.com/embed/BJ0bCwOSHrA" allowfullscreen></iframe>
-                <p style="text-align: center; padding: 1rem; font-weight: bold; background: #f0f7f9;">Reflexión Ambiental</p>
+            <div class="video-item">
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/BJ0bCwOSHrA" allowfullscreen></iframe></div>
+                <p style="text-align:center;padding:1rem;font-weight:bold;background:var(--light)">Reflexión Ambiental</p>
             </div>
         </div>
     </div>
@@ -225,6 +230,8 @@
 
 <div class="activity right"><div class="activity-dot"></div><div class="activity-box"><div class="activity-title">8. Software PRAE</div><div class="activity-meta">📅 Marzo 2026 | 📍 I.E. Amazónica</div><div class="activity-desc">Diseño de plataforma web para análisis de indicadores.</div><div class="learning"><strong>💻</strong> La tecnología es puente entre educación y gestión pública.</div><div class="photos"><img src="images/bitacoras/mar/MARZO_02.jpeg"><img src="images/bitacoras/mar/MARZO_03.jpeg"><img src="images/bitacoras/mar/MARZO_04.jpeg"></div><button class="btn" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.textContent.includes('Ver')?'Ocultar fotos':'Ver todas las fotos'">Ver todas las fotos</button><div class="gallery"><img src="images/bitacoras/mar/MARZO_01.png"><img src="images/bitacoras/mar/MARZO_02.jpeg"><img src="images/bitacoras/mar/MARZO_03.jpeg"><img src="images/bitacoras/mar/MARZO_04.jpeg"><img src="images/bitacoras/mar/MARZO_05.jpeg"></div></div></div>
 <!-- CAP 3: CULTURA DE PAZ -->
+<div class="chapter-badge"><div class="chapter-badge-content"><span class="chapter-emoji">☮️</span><span class="chapter-title">Capítulo 3: Modalidad Cultura de Paz · Junio 2026</span></div></div>
+
 <div class="activity left"><div class="activity-dot"></div><div class="activity-box"><div class="activity-title">9. Diseño de Piezas Gráficas</div><div class="activity-meta">📅 11 Junio 2026 | 📍 El Paujil</div><div class="activity-desc">Diseño de flyers informativos con enfoque pedagógico para promover participación electoral.</div><div class="learning"><strong>🎨</strong> La comunicación visual es herramienta de pedagogía política.</div><div class="photos"><img src="images/bitacoras/jun/JUNIO_01.jpg"><img src="images/bitacoras/jun/JUNIO_02.jpg"><img src="images/bitacoras/jun/JUNIO_03.png"></div><button class="btn" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.textContent.includes('Ver')?'Ocultar fotos':'Ver todas las fotos'">Ver todas las fotos</button><div class="gallery"><img src="images/bitacoras/jun/JUNIO_01.jpg"><img src="images/bitacoras/jun/JUNIO_02.jpg"><img src="images/bitacoras/jun/JUNIO_03.png"><img src="images/bitacoras/jun/JUNIO_04.jpg"><img src="images/bitacoras/jun/JUNIO_05.jpg"></div></div></div>
 
 <div class="activity right"><div class="activity-dot"></div><div class="activity-box"><div class="activity-title">10. Pedagogía Electoral en Territorio</div><div class="activity-meta">📅 13 Junio 2026 | 📍 Cartagena del Chairá</div><div class="activity-desc">Pedagogía puerta a puerta sobre participación electoral.</div><div class="learning"><strong>🤝</strong> La pedagogía presencial crea puentes de confianza.</div><div class="photos"><img src="images/bitacoras/jun/JUNIO_06.jpg"><img src="images/bitacoras/jun/JUNIO_07.jpg"><img src="images/bitacoras/jun/JUNIO_08.jpg"></div><button class="btn" onclick="this.nextElementSibling.classList.toggle('show');this.textContent=this.textContent.includes('Ver')?'Ocultar fotos':'Ver todas las fotos'">Ver todas las fotos</button><div class="gallery"><img src="images/bitacoras/jun/JUNIO_06.jpg"><img src="images/bitacoras/jun/JUNIO_07.jpg"><img src="images/bitacoras/jun/JUNIO_08.jpg"><img src="images/bitacoras/jun/JUNIO_09.jpg"><img src="images/bitacoras/jun/JUNIO_10.jpg"></div></div></div>
