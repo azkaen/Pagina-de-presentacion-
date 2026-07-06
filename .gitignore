@@ -1,9 +1,17 @@
 # Ignorar todo
 *
 
-# Excepto la carpeta ssp total
+# Excepto la carpeta ssp total (para compatibilidad/backups si se requiere)
 !ssp total/
 !ssp total/**
+
+# Excepto index.html y PDFs en la raiz
+!index.html
+!*.pdf
+
+# Excepto la carpeta de imagenes y sus contenidos en la raiz
+!images/
+!images/**
 
 # Excepto el .gitignore mismo
 !.gitignore
