@@ -57,8 +57,22 @@
             <div id="carousel" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; transition: transform 0.5s;">
                 <img src="images/inicial.jpeg" style="min-width: 100%; height: 100%; object-fit: cover;">
                 <img src="images/formacion1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
-                <img src="images/grupo-barrio.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/formacion2.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/formacion3.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
                 <img src="images/pedagogia1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/pedagogia2.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/grupo-barrio.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/ninos1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/ninos2.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/ninos3.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/obra1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/cancha.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/olla.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/flyer1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/flyer2.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/testigo.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/votacion1.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/acta.jpg" style="min-width: 100%; height: 100%; object-fit: cover;">
             </div>
         </div>
         <button onclick="carouselPrev()" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 1.2rem; z-index: 10;">❮</button>
@@ -71,8 +85,8 @@
     <p style="margin-top: 2rem;"><strong>Kevin Alexis Aragon Zapata</strong> | ASOJUNTAS Cartagena del Chairá | Febrero - Julio 2026</p>
     <script>
         let carouselIndex = 0;
-        function carouselNext() { carouselIndex = (carouselIndex + 1) % 4; updateCarousel(); }
-        function carouselPrev() { carouselIndex = (carouselIndex - 1 + 4) % 4; updateCarousel(); }
+        function carouselNext() { carouselIndex = (carouselIndex + 1) % 18; updateCarousel(); }
+        function carouselPrev() { carouselIndex = (carouselIndex - 1 + 18) % 18; updateCarousel(); }
         function updateCarousel() { document.getElementById('carousel').style.transform = 'translateX(' + (-carouselIndex * 100) + '%)'; }
     </script>
 </section>
