@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Trayectoria en el SSP - Kevin Alexis Aragon Zapata</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --accent: #00D084;
+            --purple: #9D00FF;
+            --pink: #FF006E;
+            --dark: #0a0a0a;
+            --light: #f5f5f5;
+            --neon-orange: #FF4500;
+            --neon-yellow: #FFFF00;
+            --nature-green: #15B871;
+            --forest: #1a5f3a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            border-bottom: 4px solid var(--nature-green);
+            box-shadow: 0 0 30px rgba(21,184,113,0.4);
+            color: white;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            font-family: Impact, sans-serif;
+            font-size: 1.8rem;
+            color: var(--nature-green);
+            text-shadow: 3px 3px 0 var(--forest), 6px 6px 0 rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .nav-links a {
+            color: var(--nature-green);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .nav-links a:hover {
+            color: var(--neon-orange);
+        }
+        
+        .hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(26,26,26,0.95) 100%);
+            color: white;
+            padding: 8rem 2rem 3rem;
+            text-align: center;
+            border-bottom: 6px solid var(--neon-orange);
+        }
+        
+        .hero h1 {
+            font-family: Impact, sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            color: var(--neon-orange);
+            text-shadow: 4px 4px 0 var(--purple), 8px 8px 0 rgba(0,0,0,0.5);
+        }
+        
+        .hero h2 {
+            font-size: clamp(1rem, 2.5vw, 1.8rem);
+            color: var(--nature-green);
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 0 var(--forest);
+        }
+        
+        .hero-info {
+            background: rgba(255,107,0,0.2);
+            padding: 1.5rem 2rem;
+            border: 4px solid var(--neon-orange);
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        
+        .section {
+            padding: 5rem 2rem;
+            background: #1a1a1a;
+        }
+        
+        .section-title {
+            font-family: Impact, sans-serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            text-align: center;
+            color: var(--neon-orange);
+            margin-bottom: 3rem;
+            text-shadow: 4px 4px 0 var(--purple);
+        }
+        
+        .timeline {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 8px;
+            background: linear-gradient(180deg, var(--nature-green), var(--neon-orange), var(--purple));
+            transform: translateX(-50%);
+            box-shadow: 0 0 30px var(--nature-green);
+        }
+        
+        .activity {
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .activity.left {
+            margin-left: 0;
+            margin-right: 52%;
+        }
+        
+        .activity.right {
+            margin-left: 52%;
+            margin-right: 0;
+        }
+        
+        .activity-dot {
+            position: absolute;
+            left: 50%;
+            top: 28px;
+            width: 32px;
+            height: 32px;
+            background: var(--nature-green);
+            border: 6px solid var(--neon-orange);
+            transform: translateX(-50%) rotate(45deg);
+            z-index: 10;
+            box-shadow: 0 0 30px var(--nature-green);
+        }
+
+        
+        .activity-box {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            padding: 2rem;
+            box-shadow: 10px 10px 0 rgba(157,0,255,0.3);
+            border: 5px solid var(--neon-orange);
+            border-left: 15px solid var(--purple);
+        }
+        
+        .activity-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 15px 15px 0 rgba(157,0,255,0.4);
+        }
+        
+        .activity-title {
+            font-family: Impact, sans-serif;
+            font-size: 1.4rem;
+            color: var(--neon-orange);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+        .activity-meta {
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .activity-desc {
+            margin: 1rem 0;
+            color: #ddd;
+        }
+        
+        .learning {
+            background: rgba(255,107,0,0.15);
+            padding: 1rem;
+            border-left: 8px solid var(--neon-orange);
+            margin: 1rem 0;
+        }
+        
+        .footer {
+            background: #0a0a0a;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 8px solid var(--neon-orange);
+        }
+        
+        @media(max-width: 768px) {
+            .timeline::before {
+                left: 25px;
+            }
+            .activity.left, .activity.right {
+                margin-left: 50px;
+                margin-right: 0;
+                width: calc(100% - 70px);
+            }
+            .activity-dot {
+                left: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-brand">🌿 SSP - Kevin Aragon</div>
+    <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#historia">Historia</a>
+        <a href="#impacto">Impacto</a>
+    </div>
+</nav>
+
+<section class="hero" id="inicio">
+    <div class="hero-content animate__animated animate__fadeInDown">
+        <h1>🌿 MI TRAYECTORIA EN EL SERVICIO SOCIAL PARA LA PAZ</h1>
+        <h2>Una Historia de Transformación Territorial en el Caquetá</h2>
+        
+        <div class="hero-info">
+            <p><strong>Promotor:</strong> Kevin Alexis Aragon Zapata</p>
+            <p><strong>Organización:</strong> ASOJUNTAS Cartagena del Chairá</p>
+            <p><strong>Periodo:</strong> Febrero - Julio 2026</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="historia">
+    <h2 class="section-title">📅 MI HISTORIA EN EL SSP</h2>
+    <div class="timeline">
+        
+        <div class="activity left">
+            <div class="activity-dot"></div>
+            <div class="activity-box">
+                <div class="activity-title">Formación Intensiva SSP</div>
+                <div class="activity-meta">📅 Mayo 2026 | 📍 ASOJUNTAS</div>
+                <div class="activity-desc">Adquirí herramientas de Pedagogía Social, Cultura de Paz y Cuidado de la Naturaleza.</div>
+                <div class="learning"><strong>🌟</strong> La formación técnica y humana son igualmente importantes.</div>
+            </div>
+        </div>
+        
+        <div class="activity right">
+            <div class="activity-dot"></div>
+            <div class="activity-box">
+                <div class="activity-title">Veeduría Electoral</div>
+                <div class="activity-meta">📅 Mayo 2026 | 📍 El Paujil</div>
+                <div class="activity-desc">Veeduría ciudadana garantizando transparencia en jornada electoral.</div>
+                <div class="learning"><strong>🗳️</strong> La veeduría es un acto supremo de ciudadanía.</div>
+            </div>
+        </div>
+        
+        <div class="activity left">
+            <div class="activity-dot"></div>
+            <div class="activity-box">
+                <div class="activity-title">Pedagogía de Paz Infantil</div>
+                <div class="activity-meta">📅 Junio 2026 | 📍 El Paujil</div>
+                <div class="activity-desc">Taller lúdico con niños sobre reconciliación y cuidado del entorno.</div>
+                <div class="learning"><strong>👶</strong> La lúdica siembra paz desde la infancia.</div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<footer class="footer">
+    <p><strong>Mi Trayectoria en el Servicio Social para la Paz</strong></p>
+    <p>Kevin Alexis Aragon Zapata | ASOJUNTAS Cartagena del Chairá</p>
+    <p style="margin-top:1rem">🌿 Transformando el Caquetá desde la base comunitaria 🌿</p>
+</footer>
+
+</body>
+</html>
