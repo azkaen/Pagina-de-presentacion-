@@ -1,15 +1,12 @@
-# Archivos temporales y extraídos
-extracted_*/
-temp_*/
-fotos_extraidas/
-imagenes_organizadas/
+# Ignorar todo
+*
 
-# Archivos ZIP
-*.zip
+# Excepto la carpeta ssp total
+!ssp total/
+!ssp total/**
 
-# Archivos temporales de Word
-~$*.docx
-*.tmp
+# Excepto el .gitignore mismo
+!.gitignore
 
-# Archivos de información temporal
-*_info.txt
+# Excepto el README si existe
+!README.md
