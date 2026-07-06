@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Trayectoria SSP - Kevin Aragon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #fff8e1 50%, #f3e5f5 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(46, 204, 113, 0.3);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            font-family: Impact, sans-serif;
+            font-size: 1.8rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: bold;
+        }
+        
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(241, 196, 15, 0.1));
+        }
+        
+        .hero h1 {
+            font-family: Impact, sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: #27ae60;
+            text-shadow: 3px 3px 0 #e67e22;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h2 {
+            font-size: clamp(1rem, 2.5vw, 1.8rem);
+            color: #9b59b6;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-info {
+            background: white;
+            padding: 2rem;
+            border-left: 8px solid #2ecc71;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 10px;
+        }
+        
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: Impact, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            color: #27ae60;
+            text-shadow: 2px 2px 0 #f1c40f;
+            margin-bottom: 3rem;
+        }
+        
+        .carousel-section {
+            max-width: 700px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border: 5px solid #2ecc71;
+        }
+        
+        .carousel-container {
+            position: relative;
+            padding-bottom: 66.67%;
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.6s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(46, 204, 113, 0.8);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .carousel-prev { left: 10px; }
+        .carousel-next { right: 10px; }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+        }
+        
+        .video-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border: 4px solid #2ecc71;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-title {
+            text-align: center;
+            padding: 1rem;
+            font-weight: bold;
+            background: #f8f9fa;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(180deg, #2ecc71, #e67e22, #9b59b6);
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+        }
+        
+        .chapter-badge {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .chapter-badge-content {
+            display: inline-block;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);
+        }
+        
+        .activity {
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .activity.left { margin-right: 52%; }
+        .activity.right { margin-left: 52%; }
+        
+        .activity-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 24px;
+            height: 24px;
+            background: #2ecc71;
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px #2ecc71;
+            z-index: 10;
+        }
+        
+        .activity-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 6px solid #2ecc71;
+            transition: 0.3s;
+        }
+        
+        .activity-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.3);
+        }
+        
+        .activity-title {
+            font-family: Arial Black, sans-serif;
+            font-size: 1.2rem;
+            color: #27ae60;
+            margin-bottom: 0.5rem;
+        }
+        
+        .activity-meta {
+            color: #e67e22;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .learning {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(241, 196, 15, 0.1));
+            padding: 1rem;
+            border-left: 4px solid #2ecc71;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        
+        .photos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .photos img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #2ecc71;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+        
+        .gallery {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #2ecc71;
+        }
+        
+        .gallery.show { display: grid; }
+        
+        .gallery img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #2ecc71;
+        }
+        
+        .impact-section {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+        
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+        }
+        
+        .quote-section {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .quote-text {
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .logos img {
+            height: 60px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @media(max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .activity.left, .activity.right { margin-left: 40px; margin-right: 0; }
+            .activity-dot { left: 20px; }
+            .video-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-brand">🌿 SSP Kevin Aragon</div>
+    <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#videos">Videos</a>
+        <a href="#historia">Historia</a>
+        <a href="#impacto">Impacto</a>
+    </div>
+</nav>
+
+<section class="hero" id="inicio">
+    <h1>🌿 MI TRAYECTORIA EN EL SERVICIO SOCIAL PARA LA PAZ</h1>
+    <h2>Una Historia de Transformación Territorial en el Caquetá</h2>
+    
+    <div class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-track" id="carousel">
+                <div class="carousel-slide"><img src="images/inicial.jpeg" alt="Inicio"></div>
+                <div class="carousel-slide"><img src="images/formacion1.jpg" alt="Formación 1"></div>
+                <div class="carousel-slide"><img src="images/formacion2.jpg" alt="Formación 2"></div>
+                <div class="carousel-slide"><img src="images/formacion3.jpg" alt="Formación 3"></div>
+                <div class="carousel-slide"><img src="images/pedagogia1.jpg" alt="Pedagogía 1"></div>
+                <div class="carousel-slide"><img src="images/pedagogia2.jpg" alt="Pedagogía 2"></div>
+                <div class="carousel-slide"><img src="images/grupo-barrio.jpg" alt="Grupo"></div>
+                <div class="carousel-slide"><img src="images/ninos1.jpg" alt="Niños 1"></div>
+                <div class="carousel-slide"><img src="images/ninos2.jpg" alt="Niños 2"></div>
+                <div class="carousel-slide"><img src="images/ninos3.jpg" alt="Niños 3"></div>
+                <div class="carousel-slide"><img src="images/obra1.jpg" alt="Obra"></div>
+                <div class="carousel-slide"><img src="images/cancha.jpg" alt="Cancha"></div>
+                <div class="carousel-slide"><img src="images/olla.jpg" alt="Olla"></div>
+                <div class="carousel-slide"><img src="images/flyer1.jpg" alt="Flyer 1"></div>
+                <div class="carousel-slide"><img src="images/flyer2.jpg" alt="Flyer 2"></div>
+                <div class="carousel-slide"><img src="images/testigo.jpg" alt="Testigo"></div>
+                <div class="carousel-slide"><img src="images/votacion1.jpg" alt="Votación"></div>
+                <div class="carousel-slide"><img src="images/acta.jpg" alt="Acta"></div>
+            </div>
+        </div>
+        <button class="carousel-nav carousel-prev" onclick="carouselPrev()">&#9664;</button>
+        <button class="carousel-nav carousel-next" onclick="carouselNext()">&#9654;</button>
+    </div>
+    
+    <div class="hero-info">
+        <p><strong>Promotor:</strong> Kevin Alexis Aragon Zapata</p>
+        <p><strong>Organización:</strong> ASOJUNTAS Cartagena del Chairá</p>
+        <p><strong>Periodo:</strong> Febrero - Julio 2026</p>
+    </div>
+</section>
+
+<section class="section" id="videos">
+    <h2 class="section-title">🎥 VIDEOS DE MI EXPERIENCIA SSP</h2>
+    <div class="video-grid">
+        <div class="video-item">
+            <div class="video-wrapper">
+                <iframe src="https://drive.google.com/file/d/1VhuyI1LovbHjvCDl_kJ8ADFfEX9ZMKcG/preview" allow="autoplay"></iframe>
+            </div>
+            <div class="video-title">🎬 Presentación del SSP</div>
+        </div>
+        <div class="video-item">
+            <div class="video-wrapper">
+                <iframe src="https://drive.google.com/file/d/1Oj0PpDhLtIPqAgomShzpa3t2FJOEYIge/preview" allow="autoplay"></iframe>
+            </div>
+            <div class="video-title">🌿 Sinchi en Cartagena</div>
+        </div>
+        <div class="video-item">
+            <div class="video-wrapper">
+                <iframe src="https://drive.google.com/file/d/1EjlQZBgZEoyZZajasPM9LGmQk3Azbg5O/preview" allow="autoplay"></iframe>
+            </div>
+            <div class="video-title">🎤 Rap del PRAE</div>
+        </div>
+        <div class="video-item">
+            <div class="video-wrapper">
+                <iframe src="https://drive.google.com/file/d/187ZHn7DN1FUfOC5KnyYnAZzNOr3js3d-/preview" allow="autoplay"></iframe>
+            </div>
+            <div class="video-title">🌱 Reflexión Ambiental</div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="historia">
+    <h2 class="section-title">📅 MI HISTORIA EN EL SSP - 20 ACTIVIDADES</h2>
+    <div class="timeline">
+        
+        <!-- CAPÍTULO 1: FORMACIÓN -->
+        <div class="chapter-badge">
+            <div class="chapter-badge-content">
+                <span>🎓</span> Capítulo 1: Formación SSP · Mayo 2026
+            </div>
+        </div>
+        
+        <div class="activity left">
+            <div class="activity-dot"></div>
+            <div class="activity-box">
+                <div class="activity-title">1. Formación Intensiva: Aprendizajes para la Vida</div>
+                <div class="activity-meta">📅 Mayo 2026 | 📍 ASOJUNTAS</div>
+                <p>Adquirí herramientas de Pedagogía Social, Cultura de Paz y Cuidado de la Naturaleza.</p>
+                <div class="learning"><strong>🌟</strong> La formación técnica y humana son igualmente importantes.</div>
+                <div class="photos">
+                    <img src="images/bitacoras/may/MAYO_02.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_03.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_04.jpeg" alt="">
+                </div>
+                <button class="btn" onclick="toggleGallery(this)">Ver todas las fotos</button>
+                <div class="gallery">
+                    <img src="images/bitacoras/may/MAYO_02.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_03.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_04.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_05.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <div class="activity right">
+            <div class="activity-dot"></div>
+            <div class="activity-box">
+                <div class="activity-title">2. Estrategia 'Alerta por mi Ambiente'</div>
+                <div class="activity-meta">📅 Mayo 2026 | 📍 Universidad Amazonia</div>
+                <p>Socialización de estrategia ambiental articulando SSP con academia.</p>
+                <div class="learning"><strong>🤝</strong> La articulación amplifica el impacto.</div>
+                <div class="photos">
+                    <img src="images/bitacoras/may/MAYO_06.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_07.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_08.jpeg" alt="">
+                </div>
+                <button class="btn" onclick="toggleGallery(this)">Ver todas las fotos</button>
+                <div class="gallery">
+                    <img src="images/bitacoras/may/MAYO_06.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_07.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_08.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_09.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_10.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <div class="activity left">
+            <div class="activity-dot"></div>
+            <div class="activity-box">
+                <div class="activity-title">3. Veeduría Electoral</div>
+                <div class="activity-meta">📅 Mayo 2026 | 📍 El Paujil</div>
+                <p>Veeduría ciudadana garantizando transparencia en jornada electoral.</p>
+                <div class="learning"><strong>🗳️</strong> La veeduría es un acto supremo de ciudadanía.</div>
+                <div class="photos">
+                    <img src="images/bitacoras/may/MAYO_11.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_12.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_13.jpeg" alt="">
+                </div>
+                <button class="btn" onclick="toggleGallery(this)">Ver todas las fotos</button>
+                <div class="gallery">
+                    <img src="images/bitacoras/may/MAYO_11.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_12.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_13.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_14.jpeg" alt="">
+                    <img src="images/bitacoras/may/MAYO_15.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Más actividades se agregan igual... -->
+        
+    </div>
+</section>
+
+<section class="impact-section" id="impacto">
+    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">📊 IMPACTO DEL SSP</h2>
+    <div class="stats">
+        <div class="stat-box">
+            <div class="stat-number">20</div>
+            <div>Actividades Realizadas</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">96</div>
+            <div>Evidencias Fotográficas</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">6</div>
+            <div>Meses de Servicio</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">5</div>
+            <div>Capítulos</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">∞</div>
+            <div>Compromisos</div>
+        </div>
+    </div>
+</section>
+
+<section class="quote-section">
+    <p class="quote-text">
+        "La paz no se construye desde arriba, se construye desde los barrios, las veredas, las escuelas y los corazones de las personas. 
+        El SSP terminó, pero mi servicio al territorio continúa cada día."
+    </p>
+    <p style="margin-top: 2rem; opacity: 0.9;">— Kevin Alexis Aragon Zapata, Caquetá 2026</p>
+</section>
+
+<footer class="footer">
+    <div class="logos">
+        <img src="images/logos/SSP.png" alt="SSP">
+        <img src="images/logos/JAC.png" alt="JAC">
+        <img src="images/logos/AMBIENTE.png" alt="Ambiente">
+    </div>
+    <p><strong>Mi Trayectoria en el Servicio Social para la Paz</strong></p>
+    <p>Kevin Alexis Aragon Zapata | ASOJUNTAS Cartagena del Chairá</p>
+    <p style="margin-top:1rem">🌿 Transformando el Caquetá desde la base comunitaria 🌿</p>
+</footer>
+
+<script>
+let carouselIndex = 0;
+const totalSlides = 18;
+
+function carouselNext() {
+    carouselIndex = (carouselIndex + 1) % totalSlides;
+    updateCarousel();
+}
+
+function carouselPrev() {
+    carouselIndex = (carouselIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+}
+
+function updateCarousel() {
+    document.getElementById('carousel').style.transform = 'translateX(' + (-carouselIndex * 100) + '%)';
+}
+
+function toggleGallery(btn) {
+    const gallery = btn.nextElementSibling;
+    gallery.classList.toggle('show');
+    btn.textContent = gallery.classList.contains('show') ? 'Ocultar fotos' : 'Ver todas las fotos';
+}
+</script>
+
+</body>
+</html>
